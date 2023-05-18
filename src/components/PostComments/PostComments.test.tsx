@@ -11,25 +11,25 @@ describe('Teste para o componente PostComment', () => {
     it('Deve adicionar 2 comentários', () => {
         render(<PostComment/>);
 
-        const botao = screen.getByTestId('btn-comment');
-        const comentario = screen.getByTestId('txt-comment')
+        const button = screen.getByTestId('btn-comment');
+        const comment = screen.getByTestId('txt-comment')
 
-        fireEvent.change(comentario, {
+        fireEvent.change(comment, {
             target: {
                 value: 'Primeiro Comentário',
             }
         });
-        fireEvent.click(botao);
+        fireEvent.click(button);
     
-        fireEvent.change(comentario, {
+        fireEvent.change(comment, {
             target: {
                 value: 'Segundo Comentário',
             }
         });
-        fireEvent.click(botao);
+        fireEvent.click(button);
 
-        const resultado = screen.getAllByTestId('item-comment');
-        expect(resultado).toHaveLength(2);
+        const result = screen.getAllByTestId('item-comment');
+        expect(result).toHaveLength(2);
     });
 
 });
